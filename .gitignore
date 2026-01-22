@@ -67,7 +67,6 @@ secrets.json
 **/build/
 
 **/Migrations/
-**README.md
 /OnlineCourseSystem.Notifications/Migrations/20251223205341_InitialNotificationsSchema.cs
 /OnlineCourseSystem.Notifications/Migrations/20251227141215_AddUserReferenceTable.cs
 /OnlineCourseSystem.Notifications/Migrations/20251227175107_update UserReference.cs
@@ -75,7 +74,6 @@ secrets.json
 /OnlineCourseSystem.Notifications/Migrations/20260115130852_AddScheduledNotificationsTable.cs
 /OnlineCourseSystem.Notifications/Migrations/20260119130641_AddUserNotificationDeliveriesTable.cs
 /OnlineCourseSystem.Notifications/Migrations/NotificationsDbContextModelSnapshot.cs
-/OnlineCourseSystem.Notifications/README.md
 /OnlineCourseSystem.Notifications/appsettings.Development.json
 /OnlineCourseSystem.Notifications/firebase-messaging-sw.js
 /OnlineCourseSystem.Notifications/LINKEDIN_POST.md
