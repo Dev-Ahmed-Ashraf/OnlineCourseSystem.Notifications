@@ -97,8 +97,8 @@ namespace OnlineCourseSystem.Notifications.Controllers
                 })
                 .ToList();
 
-            return this.OkResponse(types,"Notification Types Returned successfully");
-        } 
+            return this.OkResponse(types, "Notification Types Returned successfully");
+        }
 
     }
 }

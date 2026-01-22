@@ -1,7 +1,7 @@
-﻿using OnlineCourseSystem.Notifications.Models;
-using Microsoft.EntityFrameworkCore;
-using OnlineCourseSystem.Notifications.Models.Data;
+﻿using Microsoft.EntityFrameworkCore;
 using OnlineCourseSystem.Notifications.Infrastructure.Repositories.Interfaces;
+using OnlineCourseSystem.Notifications.Models;
+using OnlineCourseSystem.Notifications.Models.Data;
 
 namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories
 {

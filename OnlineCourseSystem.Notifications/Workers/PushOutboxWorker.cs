@@ -1,6 +1,3 @@
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWork;
 using OnlineCourseSystem.Notifications.Infrastructure.Services.Interfaces;
 using OnlineCourseSystem.Notifications.Models;

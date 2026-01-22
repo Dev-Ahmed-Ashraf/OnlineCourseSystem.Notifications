@@ -1,7 +1,7 @@
 using MediatR;
-using OnlineCourseSystem.Notifications.DTOs;
 using OnlineCourseSystem.Notifications.Exceptions;
 using OnlineCourseSystem.Notifications.Features.Messages.DTOs;
+using OnlineCourseSystem.Notifications.Features.Notifications.DTOs;
 using OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWork;
 using OnlineCourseSystem.Notifications.Infrastructure.Services.Interfaces;
 using OnlineCourseSystem.Notifications.Models;
@@ -58,7 +58,7 @@ namespace OnlineCourseSystem.Notifications.Features.Messages.Commands
 
             // Trigger notification (best effort - no rollback if it fails)
             await TryTriggerNewMessageNotificationAsync(dto, entity.Id, cancellationToken);
-         
+
             var conversationId = BuildConversationId(
                 dto.SenderId,
                 dto.ReceiverId,

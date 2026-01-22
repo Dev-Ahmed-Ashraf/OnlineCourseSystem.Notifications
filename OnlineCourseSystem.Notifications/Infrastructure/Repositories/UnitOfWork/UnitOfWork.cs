@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using OnlineCourseSystem.Notifications.Infrastructure.Repositories.Interfaces;
 using OnlineCourseSystem.Notifications.Models.Data;
 
@@ -8,7 +6,6 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWor
     public class UnitOfWork : IUnitOfWork
     {
         private readonly NotificationsDbContext _context;
-        private readonly Dictionary<Type, object> _genericRepositories = new();
 
         private IUserNotificationRepository? _userNotifications;
         private INotificationPreferenceRepository? _notificationPreferences;
@@ -109,21 +106,6 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWor
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             return await _context.SaveChangesAsync(cancellationToken);
-        }
-
-        public IGenericRepository<TEntity> Repository<TEntity>() where TEntity : class
-        {
-            var type = typeof(TEntity);
-
-            if (_genericRepositories.TryGetValue(type, out var existingRepository))
-            {
-                return (IGenericRepository<TEntity>)existingRepository;
-            }
-
-            var repositoryInstance = new GenericRepository<TEntity>(_context);
-            _genericRepositories[type] = repositoryInstance;
-
-            return repositoryInstance;
         }
     }
 }

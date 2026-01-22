@@ -1,5 +1,4 @@
-﻿using OnlineCourseSystem.Notifications.Models.Enums;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace OnlineCourseSystem.Notifications.Features.Notifications.DTOs

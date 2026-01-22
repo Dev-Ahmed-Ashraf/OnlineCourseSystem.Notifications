@@ -1,5 +1,5 @@
 using OnlineCourseSystem.Notifications.Infrastructure.Repositories.Interfaces;
-using System;
+
 
 namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWork
 {
@@ -16,7 +16,5 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWor
         IUserNotificationDeliveries UserNotificationDeliveries { get; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-
-        IGenericRepository<TEntity> Repository<TEntity>() where TEntity : class;
     }
 }

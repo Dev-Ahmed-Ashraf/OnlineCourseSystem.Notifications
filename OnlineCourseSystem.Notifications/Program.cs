@@ -9,8 +9,6 @@ using OnlineCourseSystem.Notifications.Infrastructure.Repositories.UnitOfWork;
 using OnlineCourseSystem.Notifications.Infrastructure.Services;
 using OnlineCourseSystem.Notifications.Infrastructure.Services.Interfaces;
 using OnlineCourseSystem.Notifications.Models.Data;
-using OnlineCourseSystem.Notifications.Services.Repositories;
-using OnlineCourseSystem.Notifications.Services.Repositories.Interfaces;
 using OnlineCourseSystem.Notifications.Validators.Notification;
 using OnlineCourseSystem.Notifications.Workers;
 using System.Reflection;
@@ -74,11 +72,6 @@ builder.Services.AddTransient(
     typeof(IPipelineBehavior<,>),
     typeof(ValidationBehavior<,>)
 );
-
-// =======================
-// FluentValidation
-// =======================
-builder.Services.AddValidatorsFromAssemblyContaining<CreateNotificationValidator>();
 
 // =======================
 // Unit of Work

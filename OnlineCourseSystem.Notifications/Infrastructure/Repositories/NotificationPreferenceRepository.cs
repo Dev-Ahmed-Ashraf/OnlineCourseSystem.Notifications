@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using OnlineCourseSystem.Notifications.Infrastructure.Repositories.Interfaces;
 using OnlineCourseSystem.Notifications.Models;
 using OnlineCourseSystem.Notifications.Models.Data;
@@ -11,40 +6,35 @@ using OnlineCourseSystem.Notifications.Models.Enums;
 
 namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories
 {
-    /// <summary>
-    /// Specialized repository that extends the generic repository to add user-centric queries.
-    /// Demonstrates how domain-specific methods can coexist with the reusable CRUD surface.
-    /// </summary>
-    public class NotificationPreferenceRepository : GenericRepository<NotificationPreference>, INotificationPreferenceRepository
+    public class NotificationPreferenceRepository : INotificationPreferenceRepository
     {
-        public NotificationPreferenceRepository(NotificationsDbContext context) : base(context)
+        private readonly NotificationsDbContext _context;
+
+        public NotificationPreferenceRepository(NotificationsDbContext context)
         {
+            _context = context;
         }
 
-        public async Task<List<NotificationPreference>> GetByUserIdAsync(Guid userId, CancellationToken cancellationToken = default)
+        public async Task<List<NotificationPreference>> GetByUserIdAsync(Guid userId)
         {
-            return await DbSet
-                .AsNoTracking()
+            return await _context.NotificationPreferences
                 .Where(x => x.UserId == userId)
-                .ToListAsync(cancellationToken);
+                .ToListAsync();
         }
 
-        public async Task<NotificationPreference?> GetAsync(
-            Guid userId,
-            NotificationType notificationType,
-            CancellationToken cancellationToken = default)
+        public async Task<NotificationPreference?> GetAsync(Guid userId,
+            NotificationType notificationType)
         {
-            return await DbSet
-                .AsNoTracking()
+            return await _context.NotificationPreferences
                 .FirstOrDefaultAsync(x =>
                     x.UserId == userId &&
-                    x.NotificationType == notificationType,
-                    cancellationToken);
+                    x.NotificationType == notificationType);
         }
 
-        public async Task AddRangeAsync(IEnumerable<NotificationPreference> preferences, CancellationToken cancellationToken = default)
+        public async Task AddRangeAsync(IEnumerable<NotificationPreference> preferences, CancellationToken cancellationToken)
         {
-            await base.AddRangeAsync(preferences, cancellationToken);
+            await _context.NotificationPreferences.AddRangeAsync(preferences, cancellationToken);
         }
+
     }
 }

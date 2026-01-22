@@ -16,7 +16,7 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<NotificationService> _logger;
 
-        
+
         private const int MaxRetryAttempts = 3; // Maximum number of retry attempts for transient failures
         private static readonly TimeSpan InitialRetryDelay = TimeSpan.FromMilliseconds(200); // Initial delay before retrying
 
@@ -199,11 +199,11 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Services
                 new SqlParameter("@PageSize", pageSize)
             };
 
-                return await _dbContext.Database
-                    .SqlQueryRaw<UserNotificationDto>(
-                        "EXEC sp_GetUserNotifications @UserId, @IsRead, @PageNumber, @PageSize",
-                        parameters)
-                    .ToListAsync();
+            return await _dbContext.Database
+                .SqlQueryRaw<UserNotificationDto>(
+                    "EXEC sp_GetUserNotifications @UserId, @IsRead, @PageNumber, @PageSize",
+                    parameters)
+                .ToListAsync();
         }
     }
 }

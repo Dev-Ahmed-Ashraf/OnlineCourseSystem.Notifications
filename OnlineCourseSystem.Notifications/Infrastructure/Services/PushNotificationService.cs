@@ -105,13 +105,13 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Services
                         };
 
                         var response = await messaging.SendAsync(message, cancellationToken);
-                        _logger.LogInformation("Push notification sent to device {DeviceId} for user {UserId}: {MessageId}", 
+                        _logger.LogInformation("Push notification sent to device {DeviceId} for user {UserId}: {MessageId}",
                             device.Id, userId, response);
                         successCount++;
                     }
                     catch (FirebaseMessagingException ex)
                     {
-                        _logger.LogWarning(ex, "Failed to send push notification to device {DeviceId}: {Error}", 
+                        _logger.LogWarning(ex, "Failed to send push notification to device {DeviceId}: {Error}",
                             device.Id, ex.Message);
 
                         // If token is invalid, mark device as inactive

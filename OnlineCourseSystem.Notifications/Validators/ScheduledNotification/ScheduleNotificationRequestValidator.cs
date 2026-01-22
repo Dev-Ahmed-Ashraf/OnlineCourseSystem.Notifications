@@ -1,5 +1,4 @@
 using FluentValidation;
-using OnlineCourseSystem.Notifications.Controllers;
 using OnlineCourseSystem.Notifications.Features.ScheduledNotifications.DTOs;
 using OnlineCourseSystem.Notifications.Models.Enums;
 

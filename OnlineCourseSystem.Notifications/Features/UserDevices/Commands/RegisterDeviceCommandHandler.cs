@@ -39,15 +39,15 @@ namespace OnlineCourseSystem.Notifications.Features.UserDevices.Commands
                     existingDevice.Platform = request.Platform;
 
                     await _unitOfWork.SaveChangesAsync(cancellationToken);
-                    
+
                     _logger.LogInformation(
-                        "Reactivated existing device {DeviceId} for user {UserId}", 
+                        "Reactivated existing device {DeviceId} for user {UserId}",
                         existingDevice.Id, request.UserId);
                 }
                 else
                 {
                     _logger.LogInformation(
-                        "Device already registered and active for user {UserId}", 
+                        "Device already registered and active for user {UserId}",
                         request.UserId);
                 }
                 return;
@@ -68,7 +68,7 @@ namespace OnlineCourseSystem.Notifications.Features.UserDevices.Commands
             await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             _logger.LogInformation(
-                "Device registered successfully: {DeviceId} for user {UserId} on platform {Platform}", 
+                "Device registered successfully: {DeviceId} for user {UserId} on platform {Platform}",
                 device.Id, request.UserId, request.Platform);
         }
     }

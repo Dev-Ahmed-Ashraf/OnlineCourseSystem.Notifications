@@ -1,5 +1,4 @@
 using OnlineCourseSystem.Notifications.Models;
-using OnlineCourseSystem.Notifications.Models.Enums;
 
 namespace OnlineCourseSystem.Notifications.Infrastructure.Repositories.Interfaces
 {

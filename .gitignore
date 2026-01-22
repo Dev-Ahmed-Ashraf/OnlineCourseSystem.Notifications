@@ -76,3 +76,6 @@ secrets.json
 /OnlineCourseSystem.Notifications/Migrations/20260119130641_AddUserNotificationDeliveriesTable.cs
 /OnlineCourseSystem.Notifications/Migrations/NotificationsDbContextModelSnapshot.cs
 /OnlineCourseSystem.Notifications/README.md
+/OnlineCourseSystem.Notifications/appsettings.Development.json
+/OnlineCourseSystem.Notifications/firebase-messaging-sw.js
+/OnlineCourseSystem.Notifications/LINKEDIN_POST.md
