@@ -88,9 +88,9 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Services
 
                 throw new BadRequestException(
                     "One or more users not Exist");
-            }
+            }   
 
-            // TVP
+            // TVP (Table-Valued Parameter)
             var userIdsTable = new DataTable();
             userIdsTable.Columns.Add("UserId", typeof(Guid));
 
@@ -166,7 +166,7 @@ namespace OnlineCourseSystem.Notifications.Infrastructure.Services
         /// </summary>
         public DateTime CalculateExpiry(NotificationType type, DateTime? courseEndDate)
         {
-            return type switch
+            return type switch 
             {
                 NotificationType.Course => courseEndDate?.AddDays(7) ?? DateTime.UtcNow.AddDays(7),
                 NotificationType.System => DateTime.UtcNow.AddDays(30),
